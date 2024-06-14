@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Dosen</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        display: grid;
+        grid-template-areas:
+          'header header'
+          'sidebar main';
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 300px auto;
+        font-family: Arial, sans-serif;
+        row-gap: 8px;
+        column-gap: 15px;
+        background-color: #f4f4f4;
+        height: 100vh;
+      }
+
+      .sidebar {
+        grid-area: sidebar;
+        background-color: white;
+        color: black;
+        height: 100%;
+      }
+
+      .sidebar .profile{
+        text-align: center;
+      }
+
+      .sidebar span {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        padding: 15px 20px;
+        cursor: pointer;
+      }
+
+      .sidebar ul li:hover {
+        background-color: #d9d9d9;
+      }
+
+      .content {
+        grid-area: main;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+      }
+
+      .header {
+        grid-area: header;
+        background-color: #4a148c;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: fit-content;
+      }
+
+      .header button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .dashboard {
+        width: 100%;
+        padding-top: 50px;
+      }
+
+      .card1 {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        width: 100%;
+      }
+
+      .card2 {
+        flex: 0 1 calc(50% - 4px);
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        height: fit-content;
+      }
+
+      .card3 {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      .h-flex {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      .flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .sidebar-section {
+        width: fit-content;
+        padding-top: 50px;
+      }
+
+      .sidebar-section .card,
+      .sidebar-section .calendar {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .calendar {
+        padding: 0;
+      }
+
+      .calendar table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .calendar th,
+      .calendar td {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+
+      .calendar th {
+        background-color: #f4f4f4;
+      }
+
+      .calendar .highlight {
+        background-color: #FF9F00;
+      }
+
+      .calendar .highlight1 {
+        background-color: #FFEF00;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h2><i class="fa fa-bars"></i> UNIVERSITAS AMIKOM YOGYAKARTA</h2>
+      <button>Logout</button>
+    </div>
+    <div class="sidebar">
+      <div style="text-align: center">
+        <img
+          src="user.jpeg"
+          class="rounded-circle"
+          alt="User Image"
+          width="150"
+          height="150"
+        />
+      </div>
+      <div class="profile">
+        <span>FIRLI KHOIRUNISA</span>
+        <p>23.01.5020</p>
+        <p>Semester - Genap TA. 2023/2024</p>
+      </div>
+      <div>
+        <ul>
+          <h5>
+            <li><i class="fas fa-tachometer-alt" href="./"></i> Dashboard</li>
+            <li><i class="fas fa-plus" href="./23.01.5020_Firli_Khoirunisa_Tambahdata.html"></i> Tambah Data</li>
+            <li><i class="fas fa-chalkboard-teacher"></i> Kelas</li>
+            <li><i class="fas fa-calendar-check"></i> Kehadiran</li>
+            <li><i class="fas fa-chart-line" href="./23.01.5020_Firli_Khoirunisa_Rekapnilai.html"></i> Rekapitulasi Nilai</li>
+          </h5>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="main">
+        <div class="dashboard h-flex">
+          <div class="card1">
+            <h5 class="card-title">Mahasiswa</h5>
+            <p class="card-text">250</p>
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="card1">
+            <h5 class="card-title">Jadwal</h5>
+            <p class="card-text">4</p>
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="card1">
+            <h5 class="card-title">Tugas</h5>
+            <p class="card-text">7</p>
+            <i class="fas fa-tasks"></i>
+          </div>
+        </div>
+        <div class="dashboard flex">
+          <div class="card2">
+            <h5 class="card-title">D3TI04-Pemrograman Web</h5>
+            <p class="card-text">2023/2024 Genap | Teori</p>
+            <p class="card-text">Firli Khoirunisa, 23.01.5020</p>
+          </div>
+          <div class="card2">
+            <h5 class="card-title">D3TI04-Pemrograman Web</h5>
+            <p class="card-text">2023/2024 Genap | Praktikum</p>
+            <p class="card-text">Firli Khoirunisa, 23.01.5020</p>
+          </div>
+          <div class="card2">
+            <h5 class="card-title">D3TI05-Pemrograman Web</h5>
+            <p class="card-text">2023/2024 Genap | Teori</p>
+            <p class="card-text">Firli Khoirunisa, 23.01.5020</p>
+          </div>
+          <div class="card2">
+            <h5 class="card-title">D3TI05-Pemrograman Web</h5>
+            <p class="card-text">2023/2024 Genap | Praktikum</p>
+            <p class="card-text">Firli Khoirunisa, 23.01.5020</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="card">
+          <h3>Pengumuman</h3>
+          <div class="card3"><img align="left" src="orange.png" width="30" height="30"><p> Ujian Tengah Semester</p></div>
+          <div class="card3"><img align="left" src="yellow.png" width="30" height="30"><p> Perkuliahan</p></div>
+        </div>
+        <div class="calendar">
+          <h3>Kalender Kampus</h3>
+          <table>
+            <tr>
+              <th>Min</th>
+              <th>Sen</th>
+              <th>Sel</th>
+              <th>Rab</th>
+              <th>Kam</th>
+              <th>Jum</th>
+              <th>Sab</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td class="highlight1">2</td>
+                <td class="highlight1">3</td>
+                <td style="color:red;">4</td>
+              </tr>
+            <tr>
+              <td style="color:red;">5</td>
+              <td class="highlight">6</td>
+              <td class="highlight">7</td>
+              <td class="highlight">8</td>
+              <td style="color:red;">9</td>
+              <td class="highlight">10</td>
+              <td style="color:red;">11</td>
+            </tr>
+            <tr>
+              <td style="color:red;">12</td>
+              <td class="highlight">13</td>
+              <td class="highlight">14</td>
+              <td class="highlight">15</td>
+              <td class="highlight">16</td>
+              <td class="highlight">17</td>
+              <td style="color:red;">18</td>
+            </tr>
+            <tr>
+              <td style="color:red;">19</td>
+              <td class="highlight1">20</td>
+              <td class="highlight1">21</td>
+              <td class="highlight1">22</td>
+              <td style="color:red;">23</td>
+              <td class="highlight1">24</td>
+              <td style="color:red;">25</td>
+            </tr>
+            <tr>
+              <td style="color:red;">26</td>
+              <td class="highlight1">27</td>
+              <td class="highlight1">28</td>
+              <td class="highlight1">29</td>
+              <td class="highlight1">30</td>
+              <td class="highlight1">31</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

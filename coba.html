@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Mahasiswa - Universitas Amikom Yogyakarta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        h2, h3 {
+            color: #4a148c;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ff9800;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #e68900;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tambah Data Mahasiswa</h2>
+        <form id="formTambahData">
+            <div class="input-group">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="input-group">
+                <label for="nim">Nomor Induk Mahasiswa</label>
+                <input type="text" id="nim" name="nim" required>
+            </div>
+            <div class="input-group">
+                <label for="jenisKelamin">Jenis Kelamin</label>
+                <select id="jenisKelamin" name="jenisKelamin" required>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="prodi">Program Studi</label>
+                <select id="prodi" name="prodi" required>
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                    <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="kelas">Kelas</label>
+                <select id="kelas" name="kelas" required>
+                    <option value="D3TI02">D3TI02</option>
+                    <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                </select>
+            </div>
+            <button type="submit">Tambah Data</button>
+        </form>
+        
+        <h3>Daftar Mahasiswa</h3>
+        <table id="tabelMahasiswa">
+            <thead>
+                <tr>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Program Studi</th>
+                    <th>Kelas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data mahasiswa akan ditambahkan di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('formTambahData').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form submit secara default
+
+            // Ambil nilai dari form
+            const nama = document.getElementById('nama').value;
+            const nim = document.getElementById('nim').value;
+            const jenisKelamin = document.getElementById('jenisKelamin').value;
+            const prodi = document.getElementById('prodi').value;
+            const kelas = document.getElementById('kelas').value;
+
+            // Buat baris tabel baru
+            const tabelMahasiswa = document.getElementById('tabelMahasiswa').getElementsByTagName('tbody')[0];
+            const row = tabelMahasiswa.insertRow();
+            row.insertCell(0).textContent = nim;
+            row.insertCell(1).textContent = nama;
+            row.insertCell(2).textContent = jenisKelamin;
+            row.insertCell(3).textContent = prodi;
+            row.insertCell(4).textContent = kelas;
+
+            // Reset form
+            document.getElementById('formTambahData').reset();
+        });
+    </script>
+</body>
+</html>
